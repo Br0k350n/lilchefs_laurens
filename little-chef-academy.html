@@ -904,21 +904,21 @@
       <div class="form-row">
         <div class="form-group">
           <label>Your First Name</label>
-          <input type="text" placeholder="e.g. Jennifer" id="parentName">
+          <input type="text" placeholder="e.g. Jennifer" id="parentName" name="parentName" required>
         </div>
         <div class="form-group">
           <label>Your Email Address</label>
-          <input type="email" placeholder="you@email.com" id="parentEmail">
+          <input type="email" placeholder="you@email.com" id="parentEmail" name="parentEmail" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Child's First Name</label>
-          <input type="text" placeholder="e.g. Marcus" id="childName">
+          <input type="text" placeholder="e.g. Marcus" id="childName" name="childName">
         </div>
         <div class="form-group">
           <label>Child's Age</label>
-          <select id="childAge">
+          <select id="childAge" name="childAge">
             <option value="">Select age...</option>
             <option>5 years old</option>
             <option>6 years old</option>
@@ -934,7 +934,7 @@
       </div>
       <div class="form-group">
         <label>What excites you most about Little Chef Academy?</label>
-        <select id="interest">
+        <select id="interest" name="interest">
           <option value="">Choose one...</option>
           <option>Building kitchen confidence</option>
           <option>Healthy eating habits</option>
@@ -995,41 +995,26 @@
 const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTU1k7pWo_b_HF83B9SiQF29K4LHCmAlNXXYAenNIXpGIqNolCaXeZbqvgtku3weC9/exec';
 const WAITLIST_ENDPOINT_PLACEHOLDER = 'REPLACE_WITH_YOUR_WEB_APP_ID';
 
-function postToGoogleScript(payload) {
-  const iframeId = 'waitlistSubmitFrame';
-  let iframe = document.getElementById(iframeId);
+async function postToGoogleScript(payload) {
+  const body = new URLSearchParams(payload).toString();
 
-  if (!iframe) {
-    iframe = document.createElement('iframe');
-    iframe.id = iframeId;
-    iframe.name = iframeId;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-  }
-
-  const proxyForm = document.createElement('form');
-  proxyForm.method = 'POST';
-  proxyForm.action = WAITLIST_ENDPOINT;
-  proxyForm.target = iframeId;
-  proxyForm.style.display = 'none';
-
-  Object.entries(payload).forEach(([key, value]) => {
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = key;
-    input.value = value || '';
-    proxyForm.appendChild(input);
+  // Use no-cors so static hosts can post to Google Apps Script without CORS errors.
+  // A resolved Promise indicates the browser sent the request.
+  await fetch(WAITLIST_ENDPOINT, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body
   });
-
-  document.body.appendChild(proxyForm);
-  proxyForm.submit();
-  proxyForm.remove();
 }
 
-function submitWaitlist(event) {
+async function submitWaitlist(event) {
   event.preventDefault();
 
   const form = document.getElementById('waitlistForm');
+  const submitBtn = form.querySelector('button[type="submit"]');
   const payload = {
     submittedAt: new Date().toISOString(),
     parentName: document.getElementById('parentName').value.trim(),
@@ -1049,9 +1034,11 @@ function submitWaitlist(event) {
     return;
   }
 
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
   try {
-    // Post through a hidden iframe so cross-origin form submission works on static hosts (Netlify).
-    postToGoogleScript(payload);
+    await postToGoogleScript(payload);
 
     form.style.display = 'none';
     document.getElementById('successMessage').classList.add('visible');
@@ -1059,6 +1046,8 @@ function submitWaitlist(event) {
   } catch (error) {
     console.error(error);
     alert('Something went wrong while sending your form. Please try again in a moment.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Reserve Our Spot — I'm In! 🍴";
   }
 }
 
