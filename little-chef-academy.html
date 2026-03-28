@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Chef Academy by Autasha Smith — Join the Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDF8F0;
+    --warm-white: #FFFDF9;
+    --sage: #7A9E7E;
+    --sage-light: #B8D4BB;
+    --sage-dark: #4E7552;
+    --terracotta: #C8694A;
+    --terracotta-light: #E8A082;
+    --golden: #E8B84B;
+    --golden-light: #F5D98A;
+    --plum: #7B4F6E;
+    --charcoal: #2C2416;
+    --warm-gray: #8A7E6E;
+    --border: rgba(44,36,22,0.1);
+    --shadow: 0 4px 32px rgba(44,36,22,0.08);
+    --shadow-lg: 0 12px 64px rgba(44,36,22,0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(253,248,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+  .nav-logo span { color: var(--terracotta); }
+  .nav-cta {
+    background: var(--terracotta);
+    color: white;
+    border: none; border-radius: 50px;
+    padding: 10px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(232,184,75,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(122,158,126,0.1) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 48px 80px 80px;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--golden-light);
+    color: var(--charcoal);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+  .hero-eyebrow::before { content: '🍳'; font-size: 1rem; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--warm-gray);
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .hero-cta-group { display: flex; flex-direction: column; gap: 16px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--terracotta);
+    color: white; border: none; border-radius: 50px;
+    padding: 18px 38px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+    width: fit-content;
+    box-shadow: 0 6px 24px rgba(200,105,74,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--sage-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(78,117,82,0.35);
+  }
+  .btn-primary::after { content: '→'; }
+  .hero-trust {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.85rem; color: var(--warm-gray);
+  }
+  .hero-trust-dots { display: flex; gap: 4px; }
+  .hero-trust-dot {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 2px solid var(--cream);
+    background: linear-gradient(135deg, var(--sage-light), var(--golden-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 80px 80px 20px;
+  }
+  .hero-visual {
+    position: relative;
+    width: 100%; max-width: 480px;
+    overflow: visible;
+  }
+  .hero-card-main {
+    background: white;
+    border-radius: 32px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card-main::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, var(--terracotta), var(--golden), var(--sage));
+  }
+  .hero-card-emoji {
+    font-size: 4.5rem; margin-bottom: 16px; display: block;
+    line-height: 1;
+  }
+  .hero-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 8px;
+  }
+  .hero-card-desc {
+    color: var(--warm-gray); font-size: 0.9rem; margin-bottom: 24px;
+  }
+  .hero-card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--cream); border-radius: 50px;
+    padding: 5px 14px; font-size: 0.8rem;
+    color: var(--charcoal); font-weight: 500;
+    border: 1px solid var(--border);
+  }
+  .hero-float-1 {
+    position: absolute; top: -24px; right: -28px;
+    background: var(--golden);
+    border-radius: 20px; padding: 14px 20px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem; color: white;
+    box-shadow: 0 8px 28px rgba(232,184,75,0.45);
+    z-index: 10;
+    white-space: nowrap;
+  }
+  .hero-float-2 {
+    position: absolute; bottom: -20px; left: -28px;
+    background: var(--sage);
+    border-radius: 20px; padding: 14px 20px;
+    box-shadow: 0 8px 28px rgba(122,158,126,0.45);
+    display: flex; align-items: center; gap: 10px;
+    transform: rotate(-4deg);
+    z-index: 10;
+  }
+  .hero-float-2-text {
+    font-size: 0.82rem; font-weight: 600; color: white;
+    line-height: 1.3;
+  }
+  .badge-dots { display: flex; gap: 3px; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.6); }
+  .badge-dot.active { background: white; }
+
+  /* ─── WAVY DIVIDER ─── */
+  .wave-divider {
+    width: 100%; overflow: hidden; line-height: 0;
+    margin-top: -2px;
+  }
+  .wave-divider svg { display: block; width: 100%; }
+
+  /* ─── SECTION GENERAL ─── */
+  section { padding: 100px 80px; }
+  .section-center { text-align: center; max-width: 700px; margin: 0 auto 64px; }
+  .section-eyebrow {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--charcoal); margin-bottom: 16px;
+  }
+  h2 em { font-style: italic; color: var(--terracotta); }
+  .section-lead {
+    font-size: 1.05rem; color: var(--warm-gray);
+    line-height: 1.75; max-width: 560px; margin: 0 auto;
+  }
+
+  /* ─── BENEFITS ─── */
+  .benefits { background: var(--warm-white); }
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; max-width: 1100px; margin: 0 auto;
+  }
+  .benefit-card {
+    background: white; border-radius: 24px; padding: 36px 32px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .benefit-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 4px;
+  }
+  .benefit-card:nth-child(1)::after { background: var(--terracotta); }
+  .benefit-card:nth-child(2)::after { background: var(--golden); }
+  .benefit-card:nth-child(3)::after { background: var(--sage); }
+  .benefit-card:nth-child(4)::after { background: var(--plum); }
+  .benefit-card:nth-child(5)::after { background: var(--terracotta-light); }
+  .benefit-card:nth-child(6)::after { background: var(--sage-dark); }
+  .benefit-icon {
+    font-size: 2.4rem; margin-bottom: 20px; display: block;
+  }
+  .benefit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 12px;
+  }
+  .benefit-desc {
+    font-size: 0.92rem; color: var(--warm-gray); line-height: 1.7;
+  }
+
+  /* ─── CLASSES ─── */
+  .classes { background: var(--cream); }
+  .classes-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; max-width: 1100px; margin: 0 auto;
+  }
+  .class-card {
+    border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow);
+    background: white;
+    transition: transform 0.2s;
+  }
+  .class-card:hover { transform: translateY(-4px); }
+  .class-card-header {
+    padding: 40px 32px 28px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .class-card:nth-child(1) .class-card-header { background: linear-gradient(135deg, #FDE8DC, #F5D98A); }
+  .class-card:nth-child(2) .class-card-header { background: linear-gradient(135deg, #D4E8D4, #B8D4BB); }
+  .class-card:nth-child(3) .class-card-header { background: linear-gradient(135deg, #E8DCF0, #D4B8D4); }
+  .class-emoji { font-size: 3rem; }
+  .class-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--charcoal);
+  }
+  .class-card-body { padding: 24px 32px; }
+  .class-desc { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.7; margin-bottom: 16px; }
+  .class-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .class-meta-item {
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--sage-dark); display: flex; align-items: center; gap: 4px;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    background: var(--charcoal);
+    color: white;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+    display: flex; justify-content: center;
+  }
+  .about-photo-frame {
+    width: 340px; height: 420px;
+    background: linear-gradient(135deg, var(--sage-light), var(--golden-light));
+    border-radius: 32px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    font-size: 7rem;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -8px; border-radius: 40px;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .about-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--terracotta);
+    color: white; border-radius: 20px;
+    padding: 16px 22px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem; line-height: 1.4;
+    box-shadow: var(--shadow);
+    transform: rotate(-3deg);
+  }
+  .about-text h2 { color: white; }
+  .about-text h2 em { color: var(--golden); }
+  .about-intro {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7);
+    line-height: 1.75; margin-bottom: 28px;
+  }
+  .about-story {
+    font-size: 0.95rem; color: rgba(255,255,255,0.6);
+    line-height: 1.8; margin-bottom: 36px;
+  }
+  .about-creds {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .about-cred {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.88rem; color: rgba(255,255,255,0.75);
+  }
+  .about-cred-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--cream); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; max-width: 1100px; margin: 0 auto 56px;
+  }
+  .testimonial-card {
+    background: white; border-radius: 24px; padding: 36px 32px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .testimonial-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; color: var(--golden);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .testimonial-text {
+    font-size: 0.95rem; color: var(--charcoal);
+    line-height: 1.75; margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .testimonial-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage-light), var(--golden-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .testimonial-name {
+    font-weight: 600; font-size: 0.9rem; color: var(--charcoal);
+  }
+  .testimonial-role { font-size: 0.8rem; color: var(--warm-gray); }
+  .testimonial-stars { color: var(--golden); font-size: 0.85rem; margin-top: 2px; }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--sage);
+    padding: 28px 80px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 64px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 12px;
+    color: white; font-size: 0.9rem; font-weight: 500;
+  }
+  .trust-item-icon { font-size: 1.4rem; }
+
+  /* ─── FAQ ─── */
+  .faq { background: var(--warm-white); }
+  .faq-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; max-width: 960px; margin: 0 auto;
+  }
+  .faq-item {
+    background: white; border-radius: 20px; padding: 28px 32px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: var(--shadow-lg); }
+  .faq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 12px;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .faq-q::before { content: 'Q'; color: var(--terracotta); flex-shrink: 0; }
+  .faq-a { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.75; }
+
+  /* ─── WAITLIST ─── */
+  .waitlist {
+    background: linear-gradient(135deg, var(--terracotta) 0%, #A8503A 100%);
+    padding: 120px 80px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .waitlist::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+  }
+  .waitlist::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -40px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .waitlist-inner { position: relative; z-index: 2; max-width: 600px; margin: 0 auto; }
+  .waitlist-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 50px;
+    margin-bottom: 28px;
+  }
+  .waitlist h2 { color: white; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+  .waitlist-sub { color: rgba(255,255,255,0.82); font-size: 1.05rem; margin-bottom: 48px; line-height: 1.7; }
+  .waitlist-form {
+    background: white; border-radius: 24px; padding: 40px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.25);
+    text-align: left;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--charcoal); letter-spacing: 0.03em;
+  }
+  .form-group input, .form-group select {
+    border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 13px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; color: var(--charcoal);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--terracotta);
+  }
+  .form-submit {
+    width: 100%;
+    background: var(--terracotta);
+    color: white; border: none; border-radius: 50px;
+    padding: 16px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 6px 24px rgba(200,105,74,0.4);
+  }
+  .form-submit:hover {
+    background: var(--sage-dark); transform: translateY(-1px);
+  }
+  .form-privacy {
+    text-align: center; margin-top: 14px;
+    font-size: 0.78rem; color: var(--warm-gray);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    padding: 60px 80px 40px;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-inner {
+    display: flex; align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 28px;
+  }
+  .footer-brand .nav-logo { font-size: 1.2rem; margin-bottom: 12px; }
+  .footer-tagline {
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem; color: var(--golden);
+  }
+  .footer-desc { font-size: 0.85rem; line-height: 1.7; max-width: 260px; margin-top: 8px; }
+  .footer-links h4 {
+    color: white; font-size: 0.85rem;
+    font-weight: 600; margin-bottom: 16px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+  .footer-links a:hover { color: white; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+
+  /* ─── SUCCESS STATE ─── */
+  .success-message {
+    display: none;
+    text-align: center; padding: 40px;
+  }
+  .success-message.visible { display: block; }
+  .success-icon { font-size: 4rem; margin-bottom: 16px; }
+  .success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--charcoal); margin-bottom: 8px;
+  }
+  .success-sub { color: var(--warm-gray); font-size: 0.95rem; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes float1 {
+    0%, 100% { transform: rotate(6deg) translateY(0px); }
+    50% { transform: rotate(6deg) translateY(-10px); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: rotate(-4deg) translateY(0px); }
+    50% { transform: rotate(-4deg) translateY(-8px); }
+  }
+  .hero-float-1 { animation: float1 3.8s ease-in-out infinite; }
+  .hero-float-2 { animation: float2 4.4s ease-in-out infinite 0.6s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 16px 28px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 100px 28px 60px; align-items: center; text-align: center; }
+    .hero-left .hero-eyebrow { margin: 0 auto 28px; }
+    .hero-left .hero-sub { margin: 0 auto 40px; }
+    .hero-left .hero-cta-group { align-items: center; }
+    .hero-right { display: none; }
+    section { padding: 72px 28px; }
+    .trust-strip { padding: 24px 28px; gap: 28px; }
+    .benefits-grid, .classes-grid, .testimonials-grid {
+      grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .about { grid-template-columns: 1fr; gap: 48px; text-align: center; padding: 72px 28px; }
+    .about-visual { display: none; }
+    .faq-grid { grid-template-columns: 1fr; max-width: 560px; }
+    .waitlist { padding: 80px 28px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { padding: 48px 28px 32px; }
+    .footer-inner { flex-direction: column; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Little <span>Chef</span> Academy<br><small style="font-size:0.65rem;color:var(--warm-gray);font-family:'DM Sans',sans-serif;font-weight:400;">by Autasha Smith</small></div>
+  <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Now Forming — Limited Spots Available</div>
+    <h1>Where Little Hands<br>Make <em>Big</em> Things</h1>
+    <p class="hero-sub">Fun, hands-on cooking classes for children ages 5–12. Your child will build real kitchen skills, grow in confidence, and discover the pure joy of creating something delicious.</p>
+    <div class="hero-cta-group">
+      <a href="#waitlist" class="btn-primary">Reserve Your Child's Spot</a>
+      <div class="hero-trust">
+        <div class="hero-trust-dots">
+          <div class="hero-trust-dot">👩</div>
+          <div class="hero-trust-dot">👨</div>
+          <div class="hero-trust-dot">👩</div>
+        </div>
+        <span>Join 200+ families already on the list</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-float-1">✨ Coming Soon!</div>
+      <div class="hero-card-main">
+        <span class="hero-card-emoji">🧑‍🍳</span>
+        <div class="hero-card-title">Little Chef Academy</div>
+        <div class="hero-card-desc">Real skills. Real food. Real confidence.</div>
+        <div class="hero-card-tags">
+          <span class="tag">Ages 5–12</span>
+          <span class="tag">Small Groups</span>
+          <span class="tag">Expert-Led</span>
+          <span class="tag">Safe Kitchen</span>
+          <span class="tag">All Skill Levels</span>
+        </div>
+      </div>
+      <div class="hero-float-2">
+        <span style="font-size:1.5rem;">🍕</span>
+        <div>
+          <div class="hero-float-2-text">Next session<br>forming now</div>
+          <div class="badge-dots" style="margin-top:4px;">
+            <div class="badge-dot active"></div>
+            <div class="badge-dot active"></div>
+            <div class="badge-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-center">
+    <div class="section-eyebrow">Why Little Chef Academy</div>
+    <h2>More Than Cooking —<br><em>A Life Skill Journey</em></h2>
+    <p class="section-lead">Every class is carefully designed to nourish more than your child's appetite. We're building the next generation of confident, creative, capable humans — one recipe at a time.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="benefit-icon">🧠</span>
+      <div class="benefit-title">Builds Real Confidence</div>
+      <p class="benefit-desc">When a child successfully creates a meal from scratch, something shifts inside them. They learn that they can try, make mistakes, adjust, and succeed — a mindset that extends far beyond the kitchen.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🥕</span>
+      <div class="benefit-title">Develops Healthy Habits</div>
+      <p class="benefit-desc">Kids who cook are more adventurous eaters. By touching, smelling, and making food themselves, they build a natural curiosity about ingredients, nutrition, and where food comes from.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🎨</span>
+      <div class="benefit-title">Sparks Creativity</div>
+      <p class="benefit-desc">Cooking is edible art. Our classes give children the freedom to experiment with colors, flavors, and textures — nurturing the kind of creative thinking that serves them for a lifetime.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">🤝</span>
+      <div class="benefit-title">Teaches Teamwork</div>
+      <p class="benefit-desc">In our small-group setting, children learn to share tasks, listen to each other, and celebrate each other's successes. It's community-building disguised as cooking class.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">📐</span>
+      <div class="benefit-title">Sneaky Academics</div>
+      <p class="benefit-desc">Measuring cups teach fractions. Timing teaches patience. Reading recipes builds literacy. Without ever opening a textbook, kids absorb math, science, and reading naturally.</p>
+    </div>
+    <div class="benefit-card">
+      <span class="benefit-icon">💛</span>
+      <div class="benefit-title">Safe, Supervised Fun</div>
+      <p class="benefit-desc">Every session is led by Autasha Smith with dedicated supervision, age-appropriate tools, and allergy-aware planning. Your child's safety and comfort are always our top priority.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES PREVIEW -->
+<section class="classes">
+  <div class="section-center">
+    <div class="section-eyebrow">What's Cooking</div>
+    <h2>A Taste of What's <em>Coming</em></h2>
+    <p class="section-lead">From weekend workshops to seasonal camps, every Little Chef Academy experience is crafted to delight children and impress parents. Here's a peek at what's in store.</p>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card">
+      <div class="class-card-header">
+        <div class="class-emoji">🍕</div>
+        <div class="class-name">Pizza From Scratch</div>
+      </div>
+      <div class="class-card-body">
+        <p class="class-desc">Kids knead real dough, choose their toppings, and slide their very own pizza into the oven. A forever favorite that teaches patience, creativity, and the magic of yeast.</p>
+        <div class="class-meta">
+          <span class="class-meta-item">🎂 Ages 5–10</span>
+          <span class="class-meta-item">⏰ 90 min</span>
+        </div>
+      </div>
+    </div>
+    <div class="class-card">
+      <div class="class-card-header">
+        <div class="class-emoji">🥞</div>
+        <div class="class-name">Breakfast Superheroes</div>
+      </div>
+      <div class="class-card-body">
+        <p class="class-desc">Fluffy pancakes, fresh fruit parfaits, and a lesson in why breakfast is the most important meal. Kids leave feeling like absolute kitchen royalty — and parents get to taste the proof.</p>
+        <div class="class-meta">
+          <span class="class-meta-item">🎂 Ages 6–12</span>
+          <span class="class-meta-item">⏰ 2 hrs</span>
+        </div>
+      </div>
+    </div>
+    <div class="class-card">
+      <div class="class-card-header">
+        <div class="class-emoji">🎂</div>
+        <div class="class-name">Junior Bake Shop</div>
+      </div>
+      <div class="class-card-body">
+        <p class="class-desc">Cupcakes, decorating, and the science of baking — this class is equal parts delicious and educational. Kids go home with their creations and a huge sense of pride.</p>
+        <div class="class-meta">
+          <span class="class-meta-item">🎂 Ages 7–12</span>
+          <span class="class-meta-item">⏰ 2.5 hrs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:48px;">
+    <a href="#waitlist" class="btn-primary" style="margin:0 auto;">See All Classes — Join the Waitlist</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-visual">
+    <div class="about-photo-frame">👩‍🍳
+      <div class="about-badge">Your child's<br>favorite chef ✨</div>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-eyebrow" style="color:var(--golden);">Meet Your Instructor</div>
+    <h2>Hi, I'm <em>Autasha</em> —<br>and I believe every child belongs in the kitchen.</h2>
+    <p class="about-intro">I didn't always feel comfortable in the kitchen. But the moment I made my first meal from scratch — the smell, the pride, the pure joy of feeding someone I loved — I was hooked for life. I started Little Chef Academy because I wanted every child to have that moment.</p>
+    <p class="about-story">With years of culinary experience and a deep passion for childhood education, I designed every Little Chef Academy class to meet children exactly where they are — whether that's a confident 10-year-old who already loves to cook, or a nervous five-year-old holding a spatula for the first time. My classes are warm, encouraging, and rooted in real technique. I keep groups small so every child feels seen, supported, and celebrated.</p>
+    <div class="about-creds">
+      <div class="about-cred">
+        <div class="about-cred-icon">🎓</div>
+        <span>Culinary arts training & children's education background</span>
+      </div>
+      <div class="about-cred">
+        <div class="about-cred-icon">👶</div>
+        <span>Years of experience teaching children ages 4–14</span>
+      </div>
+      <div class="about-cred">
+        <div class="about-cred-icon">🛡️</div>
+        <span>Food safety certified & background checked</span>
+      </div>
+      <div class="about-cred">
+        <div class="about-cred-icon">🌿</div>
+        <span>Allergy-aware planning & inclusive class design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-center">
+    <div class="section-eyebrow">What Parents Are Saying</div>
+    <h2>From Families Who've <em>Been There</em></h2>
+    <p class="section-lead">Don't just take our word for it. Here's what parents in our community have shared about working with Autasha and the Little Chef Academy experience.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">My daughter was shy and hesitant at first, but within the first ten minutes she was laughing and stirring away. She came home asking to cook dinner. I was floored — and delighted.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👩</div>
+        <div>
+          <div class="testimonial-name">Marcus & Priya T.</div>
+          <div class="testimonial-role">Parents of 7-year-old Sofia</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Autasha has a gift with children. She's patient, encouraging, and makes every single kid feel like the star of the class. My son talks about it every single week.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👨</div>
+        <div>
+          <div class="testimonial-name">Keisha M.</div>
+          <div class="testimonial-role">Mom of 9-year-old Jordan</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">I love that my kids are learning real skills — not just following a recipe, but actually understanding why things work. It's educational and they think it's just really fun.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">👩</div>
+        <div>
+          <div class="testimonial-name">Denise & Robert A.</div>
+          <div class="testimonial-role">Parents of twins, ages 8</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="trust-item-icon">🛡️</span>Food Safety Certified</div>
+  <div class="trust-item"><span class="trust-item-icon">🧒</span>Small Groups (8 max)</div>
+  <div class="trust-item"><span class="trust-item-icon">🌿</span>Allergy-Aware Planning</div>
+  <div class="trust-item"><span class="trust-item-icon">✅</span>Background Checked Instructor</div>
+  <div class="trust-item"><span class="trust-item-icon">📋</span>Age-Appropriate Curriculum</div>
+</div>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-center">
+    <div class="section-eyebrow">Questions? We've Got Answers</div>
+    <h2>Everything You Want to <em>Know</em></h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">What ages are the classes designed for?</div>
+      <p class="faq-a">Our core classes are designed for children ages 5–12, with activities adapted by age group. Younger children (5–7) work on foundational skills with extra support, while older kids (8–12) take on more complex techniques and independence in the kitchen.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do kids need any cooking experience?</div>
+      <p class="faq-a">Absolutely not! Every class welcomes complete beginners. Whether your child has never held a spatula or already loves helping in the kitchen, there's something for every skill level. We meet each child exactly where they are.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do you handle food allergies?</div>
+      <p class="faq-a">Safety first, always. We collect allergy information for every registered child before class begins. Menus are designed with common allergens in mind, and we accommodate most dietary restrictions. We'll always be upfront if a class isn't the right fit for a specific allergy.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How big are the class groups?</div>
+      <p class="faq-a">We cap every session at 8 children to ensure each child receives personal attention. Small groups mean more hands-on time, less waiting, and a more comfortable, encouraging experience for every little chef.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can parents stay and watch?</div>
+      <p class="faq-a">This is a great question that varies by class format! Drop-off classes build independence and confidence, but we also offer parent-and-child workshops where you cook together as a team. Details will be specified for each class at registration.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does my child take home?</div>
+      <p class="faq-a">The best part — everything they make! Kids go home with their creations (packed safely for travel), a printed recipe card to recreate the dish at home, and hopefully a whole lot of excitement to cook again soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="waitlist-eyebrow">🍳 Limited Spots — Join Free Today</div>
+    <h2>Your Child's Favorite New Adventure Starts Here</h2>
+    <p class="waitlist-sub">Be the first to know when Little Chef Academy opens registration. Waitlist members get early access, priority enrollment, and a special welcome gift just for signing up.</p>
+    <form class="waitlist-form" id="waitlistForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your First Name</label>
+          <input type="text" placeholder="e.g. Jennifer" id="parentName">
+        </div>
+        <div class="form-group">
+          <label>Your Email Address</label>
+          <input type="email" placeholder="you@email.com" id="parentEmail">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Child's First Name</label>
+          <input type="text" placeholder="e.g. Marcus" id="childName">
+        </div>
+        <div class="form-group">
+          <label>Child's Age</label>
+          <select id="childAge">
+            <option value="">Select age...</option>
+            <option>5 years old</option>
+            <option>6 years old</option>
+            <option>7 years old</option>
+            <option>8 years old</option>
+            <option>9 years old</option>
+            <option>10 years old</option>
+            <option>11 years old</option>
+            <option>12 years old</option>
+            <option>Multiple children</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>What excites you most about Little Chef Academy?</label>
+        <select id="interest">
+          <option value="">Choose one...</option>
+          <option>Building kitchen confidence</option>
+          <option>Healthy eating habits</option>
+          <option>Fun weekend activity</option>
+          <option>Educational enrichment</option>
+          <option>After-school program</option>
+          <option>Summer camp or workshops</option>
+          <option>Birthday party option</option>
+        </select>
+      </div>
+      <button class="form-submit" type="submit">Reserve Our Spot — I'm In! 🍴</button>
+      <p class="form-privacy">🔒 We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+    </form>
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">You're on the list!</div>
+      <p class="success-sub">Welcome to the Little Chef Academy family! Check your inbox — we just sent you a welcome message from Autasha with everything you need to know. We can't wait to cook with your little one!</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Little <span style="color:var(--terracotta)">Chef</span> Academy</div>
+      <div class="footer-tagline">Where little hands make big things ✨</div>
+      <p class="footer-desc">A children's culinary education program led by Autasha Smith, designed to build confidence, creativity, and a love of food in children ages 5–12.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#waitlist">Join the Waitlist</a></li>
+        <li><a href="#">About Autasha</a></li>
+        <li><a href="#">Classes & Workshops</a></li>
+        <li><a href="#">Birthday Parties</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Coming Soon</h4>
+      <ul>
+        <li><a href="#">Summer Camp</a></li>
+        <li><a href="#">Family Events</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Kids' Recipes Blog</a></li>
+        <li><a href="#">Private Events</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Little Chef Academy by Autasha Smith. All rights reserved.</span>
+    <span>Made with 💛 for little chefs everywhere</span>
+  </div>
+</footer>
+
+<script>
+const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_WEB_APP_ID/exec';
+
+async function submitWaitlist(event) {
+  event.preventDefault();
+
+  const form = document.getElementById('waitlistForm');
+  const payload = {
+    submittedAt: new Date().toISOString(),
+    parentName: document.getElementById('parentName').value.trim(),
+    parentEmail: document.getElementById('parentEmail').value.trim(),
+    childName: document.getElementById('childName').value.trim(),
+    childAge: document.getElementById('childAge').value,
+    interest: document.getElementById('interest').value
+  };
+
+  if (!payload.parentName || !payload.parentEmail) {
+    alert('Please enter your name and email to join the waitlist!');
+    return;
+  }
+
+  try {
+    const response = await fetch(WAITLIST_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error('Unable to save your waitlist submission right now.');
+    }
+
+    form.style.display = 'none';
+    document.getElementById('successMessage').classList.add('visible');
+    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (error) {
+    console.error(error);
+    alert('Something went wrong while sending your form. Please try again in a moment.');
+  }
+}
+
+document.getElementById('waitlistForm').addEventListener('submit', submitWaitlist);
+
+// Intersection Observer for subtle reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.benefit-card, .class-card, .testimonial-card, .faq-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
