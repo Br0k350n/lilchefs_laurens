@@ -21,7 +21,7 @@ function doPost(e) {
       ]);
     }
 
-    const payload = JSON.parse(e.postData.contents || '{}');
+    const payload = parsePayload(e);
 
     sheet.appendRow([
       payload.submittedAt || new Date().toISOString(),
@@ -40,4 +40,29 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+
+function parsePayload(e) {
+  const raw = (e && e.postData && e.postData.contents) ? e.postData.contents : '';
+  if (!raw) return {};
+
+  try {
+    return JSON.parse(raw);
+  } catch (_) {
+    return raw
+      .split('&')
+      .filter(Boolean)
+      .reduce((acc, part) => {
+        const [key, value = ''] = part.split('=');
+        acc[decodeURIComponent(key || '')] = decodeURIComponent((value || '').replace(/\+/g, ' '));
+        return acc;
+      }, {});
+  }
+}
+
+function doGet() {
+  return ContentService
+    .createTextOutput(JSON.stringify({ ok: true, service: 'Little Chef waitlist endpoint' }))
+    .setMimeType(ContentService.MimeType.JSON);
 }
