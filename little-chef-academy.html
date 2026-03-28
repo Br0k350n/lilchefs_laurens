@@ -995,7 +995,38 @@
 const WAITLIST_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzTU1k7pWo_b_HF83B9SiQF29K4LHCmAlNXXYAenNIXpGIqNolCaXeZbqvgtku3weC9/exec';
 const WAITLIST_ENDPOINT_PLACEHOLDER = 'REPLACE_WITH_YOUR_WEB_APP_ID';
 
-async function submitWaitlist(event) {
+function postToGoogleScript(payload) {
+  const iframeId = 'waitlistSubmitFrame';
+  let iframe = document.getElementById(iframeId);
+
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.id = iframeId;
+    iframe.name = iframeId;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+
+  const proxyForm = document.createElement('form');
+  proxyForm.method = 'POST';
+  proxyForm.action = WAITLIST_ENDPOINT;
+  proxyForm.target = iframeId;
+  proxyForm.style.display = 'none';
+
+  Object.entries(payload).forEach(([key, value]) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value || '';
+    proxyForm.appendChild(input);
+  });
+
+  document.body.appendChild(proxyForm);
+  proxyForm.submit();
+  proxyForm.remove();
+}
+
+function submitWaitlist(event) {
   event.preventDefault();
 
   const form = document.getElementById('waitlistForm');
@@ -1019,16 +1050,8 @@ async function submitWaitlist(event) {
   }
 
   try {
-    // Google Apps Script Web Apps usually do not return CORS headers.
-    // Using no-cors allows the browser to submit successfully from a static site.
-    await fetch(WAITLIST_ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
-      body: JSON.stringify(payload)
-    });
+    // Post through a hidden iframe so cross-origin form submission works on static hosts (Netlify).
+    postToGoogleScript(payload);
 
     form.style.display = 'none';
     document.getElementById('successMessage').classList.add('visible');
